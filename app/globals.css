@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,14 +16,101 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
+  font-family: Inter;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      to right,
+      #e2e2e2,
+      #c9d6ff
+    );
+    background-color: #c9d6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+@layer utilities {
+  .container {
+    @apply bg-white rounded-[30px] shadow-lg shadow-neutral-500/50 relative overflow-hidden w-[768px] max-w-[100%] min-h-[480px]
+  }
+  .container p {
+    @apply text-sm leading-5 tracking-[0.5px] mt-5 mb-5
+  }
+  .container span {
+    @apply text-xs
+  }
+  .container a {
+    @apply text-[#333] text-[13px] mt-[15px] mr-[10px]
+  }
+  .container button {
+    @apply bg-[#512da8] text-white text-xs py-[10px] px-[45px] border-[1px] border-transparent rounded-lg font-semibold tracking-[0.5px] uppercase mt-[10px] cursor-pointer
+  }
+  .container button.hide {
+    @apply bg-transparent border-white
+  }
+  .container form {
+    @apply bg-white flex items-center justify-center flex-col px-[40px] h-[100%]
+  }
+  .container input {
+    @apply bg-[#eee] border-none my-2 py-[10px] px-[15px] text-[13px] rounded-lg w-[100%] outline-none
+  }
+  .form-container {
+    @apply absolute top-0 h-[100%] transition-all ease-in-out delay-[600]
+  }
+  .sign-in {
+    @apply left-0 w-[50%] z-[2]
+  }
+  .container.active .sign-in {
+    @apply transform translate-x-full
+  }
+  .sign-up {
+    @apply left-0 w-[50%] opacity-0 z-[1]
+  }
+  .container.active .sign-up {
+    @apply transform translate-x-full opacity-[1] z-[5] animate-[move] duration-[600]
+  }
+  .social-icons {
+    @apply my-5
+  }
+  .social-icons a {
+    @apply border-[1px] border-[#ccc] rounded-[20%] inline-flex justify-center items-center mx-[3px] w-10 h-10
+  }
+  .toggle-container {
+    @apply absolute top-0 left-[50%] w-[50%] h-[100%] overflow-hidden transition-all ease-in-out delay-[600] z-[1000] rounded-tl-[150px] rounded-bl-[100px]
+  }
+  .container.active .toggle-container {
+    @apply transform translate-x-[-100%] rounded-tr-[150px] rounded-br-[100px] rounded-l-none
+  }
+  .toggle {
+    @apply bg-[#512da8] h-[100%]
+    bg-gradient-to-r from-[#5c6bc0] to-[#512da8] text-white relative left-[-100%] w-[200%] transform translate-x-0 transition-all ease-in-out delay-[600]
+  }
+  .container.active .toggle {
+    @apply transform translate-x-[50%]
+  }
+  .toggle-panel {
+    @apply absolute w-[50%] h-[100%] flex items-center justify-center flex-col px-[30px] text-center top-0 transform translate-x-0 transition-all ease-in-out delay-[600]
+  }
+  .toggle-left {
+    @apply transform translate-x-[-200%]
+  }
+  .toggle-right {
+    @apply right-0 transform translate-x-0
+  }
+  .container.active .toggle-left {
+    @apply transform translate-x-0
+  }
+  .container.active .toggle-right {
+    @apply transform translate-x-[200%]
+  }
 }
