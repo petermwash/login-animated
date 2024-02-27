@@ -3,7 +3,7 @@
 Clone the project
 
 ```shell script
-git clone  https://github.com/petermwash/swap-hippo.git
+git clone  https://github.com/petermwash/login-animated.git
 ```
 
 Install dependencies
